@@ -25,15 +25,16 @@ Perfect for tracking restocks, product drops, and local inventory — all with s
    python --version
 2. Clone this repository
    ```bat
-   git clone https://github.com/yourusername/sku-scout.git
+   git clone https://github.com/joshhess3/sku-scout.git
    cd sku-scout
 
 3. Create a virtual environment and install dependencies
    ```bat
    python -m venv venv
-   venv\Scripts\pip install -U pip
-   venv\Scripts\pip install requests python-dotenv tzdata
-
+   venv\Scripts\activate
+   python -m pip install -U pip
+   pip install -r requirements.txt
+   
 ## ⚙️ Step 4: Configure Your Environment
 Copy the example environment file:
    
@@ -55,7 +56,7 @@ ZIP_CODE and MAX_DISTANCE_MI → your preferred search area
 
 Run directly from Python:
    
-python bestbuy_restock_watcher_telegram_22s.py
+python bestbuy_restock_watcher_telegram_60s.py
 
 Or use the Windows batch manager for easier control:
 
@@ -109,18 +110,70 @@ Use responsibly and in compliance with Best Buy’s API Terms of Service.
 
 [Best Buy API Terms of Service](https://developer.bestbuy.com/terms)
 
-## 📸 Example Telegram Alert  
+## 💬 Setting Up Telegram Alerts
 
-Below is an example of what a successful SKU-Scout Telegram notification looks like once your setup is complete.  
+To receive real-time alerts, you’ll need to create a Telegram bot and get your Chat ID.
+
+## 1️⃣ Create a Telegram Bot with BotFather
+
+Open Telegram and search for @BotFather (https://t.me/BotFather
+).
+
+Start a chat and send the command:
+/newbot
+
+Follow the prompts to:
+
+Give your bot a name (for example: “BestBuy Alerts Bot”).
+
+Choose a username ending in “bot” (for example: sku_scout_bot).
+
+BotFather will reply with your API Token — it will look like this:
+1234567890:ABCdEfGhIjKlMnOpQrStUvWxYz
+
+Copy this token and paste it into your .env file as:
+TELEGRAM_BOT_TOKEN=your_token_here
+
+## 2️⃣ Get Your Telegram Chat ID
+
+To know where to send the alerts, you need your Chat ID.
+
+Open Telegram and search for @userinfobot (https://t.me/userinfobot
+).
+
+Start the bot — it will show something like:
+Your chat ID: 7987476661
+
+Copy that number and add it to your .env file:
+TELEGRAM_CHAT_ID=7987476661
+
+## 3️⃣ Test Your Bot Connection
+
+Before running the watcher, test that Telegram is working.
+
+Open your browser and paste this URL (replace placeholders):
+https://api.telegram.org/bot
+<YOUR_BOT_TOKEN>/sendMessage?chat_id=<YOUR_CHAT_ID>&text=Hello+from+SKU-Scout!
+
+Example:
+https://api.telegram.org/bot1234567890:ABCdEfGhIjKlMnOpQrStUvWxYz/sendMessage?chat_id=7987476661&text=Hello+from+SKU-Scout
+!
+
+You should instantly receive the “Hello from SKU-Scout!” message in Telegram.
+
+## ✅ If that works, your Telegram alerts are fully configured!
+
+##4️⃣ Add Keys to .env File
+
+Make sure these lines exist in your .env:
+
+TELEGRAM_BOT_TOKEN=your_botfather_token
+TELEGRAM_CHAT_ID=your_user_id
+
+When you run the watcher, Telegram will send stock alerts directly to your chat automatically.
+
+## Telegram Bot Example
 
 <p align="center">
   <img src="telegram_alert_example.png" alt="Telegram Alert Example" width="450"/>
 </p>
-
-The bot will send messages like this when a tracked SKU becomes available at your nearby Best Buy locations.  
-
-Each alert includes:  
-- 🔢 The product SKU  
-- 🏬 Store name and location  
-- 💲 Price details (if available)  
-- 🔗 A direct link to view or purchase on BestBuy.com  
