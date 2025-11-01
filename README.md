@@ -1,6 +1,7 @@
 # 🛰️ SKU-Scout (BestBuy Stock Watcher)
 
 **SKU-Scout** is a lightweight Python tool that monitors Best Buy product SKUs by ZIP code and radius, then sends instant **Telegram alerts** when nearby stores have in-stock availability.  
+
 Perfect for tracking restocks, product drops, and local inventory — all with simple setup and real-time notifications.
 
 ---
