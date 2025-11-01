@@ -108,3 +108,19 @@ Use responsibly and in compliance with Best Buy’s API Terms of Service.
 [Best Buy API Documentation](https://developer.bestbuy.com/documentation)
 
 [Best Buy API Terms of Service](https://developer.bestbuy.com/terms)
+
+## 📸 Example Telegram Alert  
+
+Below is an example of what a successful SKU-Scout Telegram notification looks like once your setup is complete.  
+
+<p align="center">
+  <img src="telegram_alert_example.png" alt="Telegram Alert Example" width="450"/>
+</p>
+
+The bot will send messages like this when a tracked SKU becomes available at your nearby Best Buy locations.  
+
+Each alert includes:  
+- 🔢 The product SKU  
+- 🏬 Store name and location  
+- 💲 Price details (if available)  
+- 🔗 A direct link to view or purchase on BestBuy.com  
