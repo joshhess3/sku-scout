@@ -1,6 +1,12 @@
-venv/
+# Python
 __pycache__/
+*.py[cod]
 *.log
-*.pid
-*.json
+.venv/
+venv/
 .env
+# Local state
+availability_state.json
+# System files
+.DS_Store
+Thumbs.db
