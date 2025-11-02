@@ -161,9 +161,9 @@ https://api.telegram.org/bot1234567890:ABCdEfGhIjKlMnOpQrStUvWxYz/sendMessage?ch
 
 You should instantly receive the “Hello from SKU-Scout!” message in Telegram.
 
-## ✅ If that works, your Telegram alerts are fully configured!
+✅ If that works, your Telegram alerts are fully configured!
 
-##4️⃣ Add Keys to .env File
+## 4️⃣ Add Keys to .env File
 
 Make sure these lines exist in your .env:
 
@@ -175,5 +175,5 @@ When you run the watcher, Telegram will send stock alerts directly to your chat 
 ## Telegram Bot Example
 
 <p align="center">
-  <img src="telegram_alert_example.png" alt="Telegram Alert Example" width="450"/>
+  <img src="telegram_alert_example.png" alt="Telegram Alert" width="450"/>
 </p>
